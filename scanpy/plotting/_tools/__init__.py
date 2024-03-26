@@ -1203,6 +1203,7 @@ def rank_genes_groups_violin(
     ax: Axes | None = None,
     show: bool | None = None,
     save: bool | None = None,
+    **kwds,
     # deprecated
     scale: Literal["area", "count", "width"] | None = None,
 ):
@@ -1237,6 +1238,8 @@ def rank_genes_groups_violin(
     size
         Size of the jitter points.
     {show_save_ax}
+    **kwds
+        Are passed to :func:`~seaborn.violinplot`.
     """
     if key is None:
         key = "rank_genes_groups"
@@ -1282,6 +1285,7 @@ def rank_genes_groups_violin(
             density_norm=density_norm,
             orient="vertical",
             ax=ax,
+            **kwds,
         )
         if strip:
             _ax = sns.stripplot(
